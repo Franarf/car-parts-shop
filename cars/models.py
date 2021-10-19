@@ -2,7 +2,6 @@ from django.db import models
 from datetime import datetime
 from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
-
 from django.db.models.enums import Choices
 
 # Create your models here.
