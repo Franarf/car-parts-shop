@@ -6053,6 +6053,7 @@ footer {
     border-radius: 10px;
 }
 
+
 .search-box-4 .search-fields {
     min-height: 40px;
     padding: 0;
@@ -8166,7 +8167,7 @@ table {
     .sticky-header {
         position: fixed;
         top: 49px;
-        z-index: 9999;
+        z-index: 999;
         width: 100%;
         background: rgba(12,12,12,0.1);
     }

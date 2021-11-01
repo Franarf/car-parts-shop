@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # 'cars.apps.CarsConfig',
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    
+    
 
 
     #Providers
@@ -160,6 +163,13 @@ MESSAGE_TAGS = {
 }
 
 SITE_ID = 1
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'service.testingapps@gmail.com' 
+EMAIL_HOST_PASSWORD = 'Pappagallo123'
+EMAIL_USE_TLS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
 from .models import Team
 from cars.models import Car
+from django.core.mail import send_mail
+from django.contrib.auth.models import User
 
 def home(request):
     teams = Team.objects.all()
@@ -48,4 +51,30 @@ def services(request):
     return render(request, 'pages/services.html')
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        phone = request.POST['phone']
+        message = request.POST['message']
+
+
+        email_subject = ' Hai ricevuto una mail dal Negozio Auto per: ' + subject
+        message_body = 'Name: ' + name + '. Email: '+ email + '. Phone: ' + phone + '. Message: ' + message
+        
+
+        admin_info = User.objects.get(is_superuser=True) #per importare info da Admin
+        admin_email = admin_info.email
+        send_mail(
+            email_subject, 
+            message_body,
+            'service.testingapps@gmail.com',
+            [admin_email],
+            fail_silently=False,
+        )
+
+        messages.success(request, 'Grazie per averci contattato. Vi risponderemo appena possibile.')
+        return redirect('contact')
+
+
     return render(request, 'pages/contact.html')
