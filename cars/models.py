@@ -60,6 +60,70 @@ class Car(models.Model):
         ('WI', 'Wisconsin'),
         ('WY', 'Wyoming'),
     )
+
+    manufacturer_choices = (
+
+        ('ABARTH', 'ABARTH'),
+        ('AIXAM', 'AIXAM'),
+        ('ALFA ROMEO', 'ALFA ROMEO'),
+        ('ALPINA-BMW', 'ALPINA-BMW'),
+        ('ANTONELLI', 'ANTONELLI'),
+        ('ASTON MARTIN', 'ASTON MARTIN'),
+        ('AUDI', 'AUDI'),
+        ('AUTOBIANCH', 'AUTOBIANCH'),
+        ('BEDFORD', 'BEDFORD'),
+        ('BENTLEY', 'BENTLEY'),
+        ('BERTONE', 'BERTONE'),
+        ('BMW', 'BMW'),
+        ('BREMACH', 'BREMACH'),
+        ('BUGATTI', 'BUGATTI'),
+        ('CADILLAC', 'CADILLAC'),
+        ('CASALINI', 'CASALINI'),
+        ('CHATENET', 'CHATENET'),
+        ('CHEVROLET', 'CHEVROLET'),
+        ('CHRYSLER', 'CHRYSLER'),
+        ('CITROEN', 'CITROEN'),
+        ('CORVETTE', 'CORVETTE'),
+        ('DACIA', 'DACIA'),
+        ('DAEWOO', 'DAEWOO'),
+        ('DAIHATSU', 'DAIHATSU'),
+        ('DODGE', 'DODGE'),
+        ('DR', 'DR'),
+        ('EFFEDI', 'EFFEDI'),
+        ('FIAT', 'FIAT'),
+        ('FORD', 'FORD'),
+        ('GREAT WALL MOTOR', 'GREAT WALL MOTOR'),
+        ('HONDA', 'HONDA'),
+        ('HUMMER', 'HUMMER'),
+        ('HYUNDAI', 'HYUNDAI'),
+        ('INFINITI', 'INFINITI'),
+        ('INNOCENTI', 'INNOCENTI'),
+        ('ISUZU', 'ISUZU'),
+        ('IVECO', 'IVECO'),
+        ('JAGUAR', 'JAGUAR'),
+        ('JEEP', 'JEEP'),
+        ('KIA', 'KIA'),
+        ('LADA', 'LADA'),
+        ('LAMBORGHINI', 'LAMBORGHINI'),
+        ('LANCIA', 'LANCIA'),
+        ('LAND ROVER', 'LAND ROVER'),
+        ('LEXUS', 'LEXUS'),
+        ('LIGIER', 'LIGIER'),
+        ('LINCOLN', 'LINCOLN'),
+        ('LOTUS', 'LOTUS'),
+        ('MASERATI', 'MASERATI'),
+        ('MAZDA', 'MAZDA'),
+        ('MERCEDES', 'MERCEDES'),
+        ('MG', 'MG'),
+        ('MINI', 'MINI'),
+        ('MITSUBISHI', 'MITSUBISHI'),
+        ('NISSAN', 'NISSAN'),
+        ('OPEL', 'OPEL'),
+        ('PEUGEOT', 'PEUGEOT'),
+        ('PIAGGIO', 'PIAGGIO'),
+
+    )
+
     
     year_choice = []
     for r in range(2000, (datetime.now().year+1)):
@@ -114,6 +178,9 @@ class Car(models.Model):
     fuel_type = models.CharField(max_length=50)
     no_of_owners = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
+    # manufacturer = models.CharField(choices=manufacturer_choices, max_length=100 )
+    # manufacturer = MultiSelectField(choices=manufacturer_choices)
+
     created_date = models.DateTimeField(default=datetime.now, blank=True)
 
 
